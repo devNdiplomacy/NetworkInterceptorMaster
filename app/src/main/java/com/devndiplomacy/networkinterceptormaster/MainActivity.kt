@@ -14,6 +14,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.devndiplomacy.networkinterceptormaster.ui.theme.NetworkInterceptorMasterTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val interceptorViewModel = InterceptorViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,11 +26,15 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
+
+                    interceptorViewModel.initiateDummyCall()
                 }
             }
         }
     }
 }
+
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
